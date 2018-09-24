@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center he">
+      <h1> Star Converter</h1>
+      <p>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star fa-spin"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star"></i>
+          <i class="fa fa-star-half"></i>
+      </p>
+      
+      <!-- <hr> -->
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <form name="fpfinput">
+        <div class="form-group">
+          <p *ngIf="!fpf">What did Ned say? Use the slider below to select a number.</p>
+          <p *ngIf="fpf"> {{fpf}} / 5.5</p>
+          <!-- <input type="number" min="0" max="5.5" step=0.05 [(ngModel)]="fpf" #ctrl="ngModel" name="fivepointfive_f"> -->
+          <input type="range" class="custom-range" name="fivepointfive" min="0" max="5.5" step=0.05 [(ngModel)]="fpf" #ctrl="ngModel">
+        </div>
+      </form>
+      <p>
+        <i *ngIf="((( fpf / 5.5 ) * 5) >= 0.5) && ((( fpf / 5.5 ) * 5) < 1)" class="fa fa-star-half fa-3x"></i>
+        <i *ngIf="(( fpf / 5.5 ) * 5) >= 1" class="fa fa-star fa-3x"></i>
+        <i *ngIf="((( fpf / 5.5 ) * 5) >= 1.5) && ((( fpf / 5.5 ) * 5) < 2)" class="fa fa-star-half fa-3x"></i>
+        <i *ngIf="(( fpf / 5.5 ) * 5) >= 2" class="fa fa-star fa-3x"></i>
+        <i *ngIf="((( fpf / 5.5 ) * 5) >= 2.5) && ((( fpf / 5.5 ) * 5) < 3)" class="fa fa-star-half fa-3x"></i>
+        <i *ngIf="(( fpf / 5.5 ) * 5) >= 3" class="fa fa-star fa-3x"></i>
+        <i *ngIf="((( fpf / 5.5 ) * 5) >= 3.5) && ((( fpf / 5.5 ) * 5) < 4)" class="fa fa-star-half fa-3x"></i>
+        <i *ngIf="(( fpf / 5.5 ) * 5) >= 4" class="fa fa-star fa-3x"></i>
+        <i *ngIf="((( fpf / 5.5 ) * 5) >= 4.5) && ((( fpf / 5.5 ) * 5) < 5)" class="fa fa-star-half fa-3x"></i>
+        <i *ngIf="(( fpf / 5.5 ) * 5) == 5" class="fa fa-star fa-3x"></i>
+      </p>
+      <p class="p-t-sm" *ngIf="fpf">The rating is
+        <strong>{{ (( fpf / 5.5 ) * 5).toFixed(2) }} stars</strong>.</p>
+      <i class="{{help ? 'fa-times' : 'fa-info-circle' }} fa help pull-right" (click)="test()"></i>
+      <p class="p-t-sm" *ngIf="help">This converter is designed to translate ratings in the outlawed
+        <strong>5.5 star system</strong> to the universally accepted and admired
+        <strong>5 star system</strong>.</p>
+    </div>
+  </div>
+</div>
